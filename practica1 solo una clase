@@ -1,32 +1,31 @@
 package pract2;
-//ME AYUDO UN AMIGO DE SPAIN
-//import java.util.ArrayList; tenia mucho en mente este paquete para capturar pero no supe como utilizarlo ya que creo que es mucho mas facil para
+//import java.util.ArrayList; tenia much en mente este paquete para capturar pero no supe como utilizarlo ya que creo que es mucho mas facil para
 //crear estos menus de captura
 import java.util.Scanner;
 
 public class Main {
 	
 	public static void main(String args[]) {
-		int opc=0;
-        Estudiante Alumnos[] = new Estudiante[10]; //pongo mi arreglo de 10 ya que tengo que inicializar 5 y capturar 5 mas 
-         
-        Alumnos[0] = new Estudiante("David", 1269352, "Espanol",100);
-        Alumnos[1] = new Estudiante("Claudia",1269353,"Historia",50 );
-        Alumnos[2] = new Estudiante("Mauricio",1269354, "Geografia", 95);
-        Alumnos[3] = new Estudiante("Mayco", 1269355, "Calculo Diferencial", 30);
-        Alumnos[4] = new Estudiante("Shente", 1269356, "Cal.Multivariable", 80);
+  int opc=0;
+  //visto en arreglos 2 el viernes
+  Estudiante Alumnos[] = new Estudiante[10]; //pongo mi arreglo de 10 ya que tengo que inicializar 5 y capturar 5 mas     
+  Alumnos[0] = new Estudiante("David", 1269352, "Espanol",100);
+  Alumnos[1] = new Estudiante("Claudia",1269353,"Historia",50 );
+  Alumnos[2] = new Estudiante("Mauricio",1269354, "Geografia", 95);
+  Alumnos[3] = new Estudiante("Mayco", 1269355, "Calculo Diferencial", 30);
+  Alumnos[4] = new Estudiante("Shente", 1269356, "Cal.Multivariable", 80);
         
-  do{
-    System.out.println("1) Capturar Alumnos");
-    System.out.println("2) Mostrar Alumno");
-    System.out.println("3) Cambiar calificacion");
-    System.out.println("4) Salir");
-    opc = CapturaEntrada.capturarEntero("Opcion");
-    switch(opc)
-  {
-   case 1:                
+  do{         
+  System.out.println("[1]_Capturar Alumnos");
+  System.out.println("[2]_Mostrar Alumno");
+  System.out.println("[3]_Cambiar calificacion");
+  System.out.println("[4]_Salir");
+  opc = CapturaEntrada.capturarEntero("Opcion");
+  switch(opc)
  {
-  //Capturara de alumnos
+  case 1:                
+ {
+   //Capturar estudiantes 
   for(int i = 5; i<10;i++)
  {
   Alumnos[i] = new Estudiante(CapturaEntrada.capturarCadena("Nombre"), 
@@ -36,74 +35,64 @@ public class Main {
  }
   break;
  }
- case 2:   { 
- if(Alumnos[5] == null) //la posicion 6 no se inicia
-{
-//Imprimir alumnos
- for(int i = 0;i<5;i++)
-{
- System.out.println("Alumno numero" + i);
- System.out.println("Nombre: " + Alumnos	[i].getNombre());
- System.out.println("Num. Control: " + Alumnos[i].getNumControl());
- System.out.println("Materia: "+ Alumnos[i].getMateria());
- System.out.println("Calificacion: " + Alumnos[i].getCalificacion());
- System.out.println("Estado de la materia: " + Alumnos[i].estado);
- System.out.println();
-}
-}
-{
+ case 2:{ 
+ //Imprimir estudiantes
+   for(int i = 0;i<5;i++)
+  {
+	   System.out.println();
+   System.out.println("Alumno numero " + i);
+   System.out.println("Nombre: " + Alumnos	[i].getNombre());
+   System.out.println("Numero. Control: " + Alumnos[i].getNumControl());
+   System.out.println("Materia: "+ Alumnos[i].getMateria());
+   System.out.println("Calificacion: " + Alumnos[i].getCalificacion());
+   System.out.println("Estado de la materia: " + Alumnos[i].estado);
+   System.out.println();
+   System.out.println();
+  }
   for(int i = 0;i<10;i++) 
-{
+ {
+	  System.out.println();
   System.out.println("Alumno numero" + i);
   System.out.println("Nombre: " + Alumnos[i].getNombre());
-  System.out.println("Num. Control: " + Alumnos[i].getNumControl());
+  System.out.println("Numero. Control: " + Alumnos[i].getNumControl());
   System.out.println("Materia: "+ Alumnos[i].getMateria());
   System.out.println("Calificacion: " + Alumnos[i].getCalificacion());
-  System.out.println("Estado de la materia: " + Alumnos[i].asignarEstado());// mandando a llamar metodo asignar mediante ala declaracion de nuestro parametro en alumnos esto depende ya que tenemoos una declaracion en el metodo
+  System.out.println("Estado de la materia: " + Alumnos[i].asignarEstado());
   System.out.println();
   System.out.println();
 }
-}
-break;
-}
-case 3:
+ break;
+ }
+ case 3: //Cambiar calificacion
 {
-if(Alumnos[5] == null)
-{
-for(int i = 0;i<5;i++)
-{
-Alumnos[i].setCalificacion(CapturaEntrada.capturarFlotante("Introduce calficacion nueva para " + Alumnos[i].getNombre()));
+  for(int i = 0;i<5;i++){
+  Alumnos[i].setCalificacion(CapturaEntrada.capturarFlotante("Introduce calficacion nueva para " + Alumnos[i].getNombre()));
 }
+for(int i = 0;i<10;i++){
+ Alumnos[i].setCalificacion(CapturaEntrada.capturarFlotante("Introduce calficacion nueva para " + Alumnos[i].getNombre()));
 }
-{
-for(int i = 0;i<10;i++)
-{
-Alumnos[i].setCalificacion(CapturaEntrada.capturarFlotante("Introduce calficacion nueva para " + Alumnos[i].getNombre()));
+ break;
+ }
+ }
+ }while(opc != 4);  
+  System.out.println("*************Gracias por visitar el programa************* ");
+ }
 }
-}
-break;
-}              
-}
-}while(opc != 4); //sale de mi menu si este es diferente o igual al 4 
-}
-}
-
-class Estudiante {
+  
+	class Estudiante {
     String nombre;
     int numControl;
     String materia;
     double calificacion;
     String estado;
     
-    public Estudiante(String nombre, int numControl, String materia, float calificacion)
-    { 
+    public Estudiante(String nombre, int numControl, String materia, float calificacion){ 
         setNombre(nombre);
         setNumControl(numControl);
         setMateria(materia);
         setCalificacion(calificacion);
-        asignarEstado();  
+        asignarEstado();
     }
-    
     //setters
     public void setNombre(String nombre){ 
     		this.nombre = nombre;
@@ -117,9 +106,10 @@ class Estudiante {
             this.materia = materia;
     }
   
-    public void setCalificacion(double calificacion){
+    public void setCalificacion(double calificacion) {
         	this.calificacion = calificacion;
     }
+    
     
     //getters para devolver lo equivalente en las variables 
     public String getNombre(){ 
@@ -127,37 +117,31 @@ class Estudiante {
      }
         
       public int getNumControl(){
-      return numControl;
-     }
+                return numControl;
+       }
      public String getMateria(){ 
     	return materia;
-     }
-    public double getCalificacion() 
-     {
-      return calificacion;
-     }
-     
-    //metodo para asignar el estado del estudiante mediante el ingreso de su calificacion 
+        }
+    public double getCalificacion()  {
+            return calificacion;
+        }
     
-    public String asignarEstado() {
-        if(calificacion >= 60)
-        {
-            estado = "Aprobado";
-        }else{
-            estado = "Reprobado";
+    //metodo para asignar el estado del estudiante mediante el ingreso de su calificacion 
+    public String asignarEstado() 
+    {
+        if(calificacion >= 60){estado = "Aprobado";
+        }else{estado = "Reprobado";
         }
         return estado;
     }
     
-    public void cambiarCalificacion(float CaliNueva) { //Metodo cabiar calificacio
-   
+    public void cambiarCalificacion(float CaliNueva) //Metodo que cambia la calificacion del alumno
+    {
         calificacion = CaliNueva;
-}    
+    }    
 }
-
-//clase entrada de datos mediante el teclado para las nuevos datos de captura 
-
-class CapturaEntrada{
+	//reutilizado de taller 2 o 3
+	class CapturaEntrada{
 	
     public static int capturarEntero(String msg){ 
         Scanner sc = new Scanner(System.in);
@@ -165,13 +149,13 @@ class CapturaEntrada{
         return (sc.nextInt());
     }
 
-    public static float capturarFlotante(String msg){ 
+    public static float capturarFlotante(String msg){  
         Scanner sc = new Scanner(System.in);
         System.out.print(""+msg+": ");
         return (sc.nextFloat());
     }
 
-    public static double capturarDoble(String msg){ 
+    public static double capturarDoble(String msg){  
         Scanner sc = new Scanner(System.in);
         System.out.print(""+msg+": ");
         return (sc.nextDouble());
@@ -182,5 +166,4 @@ class CapturaEntrada{
         System.out.print(""+msg+": ");
         return (sc.nextLine());
     }
-	
 }

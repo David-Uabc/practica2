@@ -1,0 +1,2 @@
+module pract2 {
+}

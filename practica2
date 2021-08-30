@@ -15,17 +15,17 @@ public class Main {
   Alumnos[3] = new Estudiante("Mayco", 1269355, "Calculo Diferencial", 30);
   Alumnos[4] = new Estudiante("Shente", 1269356, "Cal.Multivariable", 80);
         
-  do{         
+  do{        
   System.out.println("[1]_Capturar Alumnos");
   System.out.println("[2]_Mostrar Alumno");
   System.out.println("[3]_Cambiar calificacion");
   System.out.println("[4]_Salir");
-  opc = CapturaEntrada.capturarEntero("Opcion");
+  opc = CapturaEntrada.capturarEntero("------>Opcion a consultar");
   switch(opc)
  {
   case 1:                
- {
-   //Capturar estudiantes 
+ 
+   //Capturar estudiantes que solo capturare mediante el teclado
   for(int i = 5; i<10;i++)
  {
   Alumnos[i] = new Estudiante(CapturaEntrada.capturarCadena("Nombre"), 
@@ -34,51 +34,42 @@ public class Main {
   CapturaEntrada.capturarFlotante("Calificacion"));
  }
   break;
- }
- case 2:{ 
- //Imprimir estudiantes
-   for(int i = 0;i<5;i++)
-  {
-	   System.out.println();
-   System.out.println("Alumno numero " + i);
-   System.out.println("Nombre: " + Alumnos	[i].getNombre());
-   System.out.println("Numero. Control: " + Alumnos[i].getNumControl());
-   System.out.println("Materia: "+ Alumnos[i].getMateria());
-   System.out.println("Calificacion: " + Alumnos[i].getCalificacion());
-   System.out.println("Estado de la materia: " + Alumnos[i].estado);
-   System.out.println();
-   System.out.println();
-  }
+ 
+ case 2: 
+
+
+   //IMPRIME ALUMNOS CAPTURADOS Y INICIALIZADOS
   for(int i = 0;i<10;i++) 
  {
-	  System.out.println();
-  System.out.println("Alumno numero" + i);
+  System.out.println("***************************");
+  System.out.println();
+  System.out.println("Alumno:  " +(i));
   System.out.println("Nombre: " + Alumnos[i].getNombre());
   System.out.println("Numero. Control: " + Alumnos[i].getNumControl());
   System.out.println("Materia: "+ Alumnos[i].getMateria());
   System.out.println("Calificacion: " + Alumnos[i].getCalificacion());
   System.out.println("Estado de la materia: " + Alumnos[i].asignarEstado());
   System.out.println();
-  System.out.println();
+  System.out.println("***************************");
 }
  break;
- }
- case 3: //Cambiar calificacion
-{
-  for(int i = 0;i<5;i++){
+ 
+ case 3: //Cambiar calificacion //solo cambiaremos las calificaciones de los capturados y si quiere cambiar la de los- 
+	 // capturados cambie dentro del for donde dice int i=5 a int i=0 para que los tome encuenta
+
+  for(int i = 5;i<10;i++){
+	  
   Alumnos[i].setCalificacion(CapturaEntrada.capturarFlotante("Introduce calficacion nueva para " + Alumnos[i].getNombre()));
 }
-for(int i = 0;i<10;i++){
- Alumnos[i].setCalificacion(CapturaEntrada.capturarFlotante("Introduce calficacion nueva para " + Alumnos[i].getNombre()));
-}
+
  break;
- }
- }
+ 
+ }//switch cierre
  }while(opc != 4);  
-  System.out.println("*************Gracias por visitar el programa************* ");
+  System.out.println("*************_GRACIAS POR VISITAR EL PROGRAMA_************ ");
  }
 }
-  
+  //A COMODADO COMO EL EJERCICIO 2 Y 1 DE TALLER CLASE ALUMNO
 	class Estudiante {
     String nombre;
     int numControl;
